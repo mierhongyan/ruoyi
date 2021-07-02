@@ -50,11 +50,12 @@ public class SysUser extends BaseEntity
     /** 用户性别 */
     @Excel(name = "用户性别", readConverterExp = "0=男,1=女,2=未知")
     private String sex;
-
+    /** 用户岗位 **/
     private Long postId;
-
+    /**用户岗位名称**/
     private String postName;
-
+    /** 用户姓名 **/
+    private String fullName;
     /** 用户头像 */
     private String avatar;
 
@@ -100,6 +101,13 @@ public class SysUser extends BaseEntity
 
     }
 
+//    @Size(min = 0, max = 30, message = "用户姓名长度不能超过30个字符")
+    public String getFullName() {
+        return fullName;
+    }
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
     public Long getPostId() {
         return postId;
@@ -162,6 +170,7 @@ public class SysUser extends BaseEntity
     {
         this.nickName = nickName;
     }
+
 
     @NotBlank(message = "用户账号不能为空")
     @Size(min = 0, max = 30, message = "用户账号长度不能超过30个字符")
@@ -325,7 +334,8 @@ public class SysUser extends BaseEntity
             .append("userId", getUserId())
             .append("deptId", getDeptId())
             .append("userName", getUserName())
-            .append("nickName", getNickName())
+//            .append("nickName", getNickName())
+            .append("nickName", getFullName())
             .append("email", getEmail())
             .append("phonenumber", getPhonenumber())
             .append("sex", getSex())
