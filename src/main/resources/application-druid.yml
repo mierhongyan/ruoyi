@@ -5,10 +5,11 @@ spring:
         driverClassName: com.mysql.cj.jdbc.Driver
         druid:
             # 主库数据源
+            #修改数据库密码
             master:
                 url: jdbc:mysql://localhost:3306/ry?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
                 username: root
-                password: p0o9i8u7
+                password: My924242
             # 从库数据源
             slave:
                 # 从数据源开关/默认关闭
